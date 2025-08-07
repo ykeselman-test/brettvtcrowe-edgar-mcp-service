@@ -108,7 +108,7 @@ async def search_company(q: str):
             "found": True,
             "cik": company.cik,
             "name": company.name,
-            "ticker": company.ticker,
+            "ticker": getattr(company, 'ticker', getattr(company, 'tickers', 'N/A')),
             "confidence": 1.0
         }
     except Exception as e:
